@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input, button { margin: 10px; padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <h1>YouTube Downloader</h1>
+    <input type="text" id="videoUrl" placeholder="動画のURLを入力">
+    <button onclick="downloadVideo()">ダウンロード</button>
+
+    <script>
+        function downloadVideo() {
+            let url = document.getElementById("videoUrl").value;
+            if (!url) return alert("URLを入力してください");
+
+            // 自宅サーバーのURLにリクエストを送信
+            window.location.href = `http://<your-server-ip>:5000/download?url=${encodeURIComponent(url)}`;
+        }
+    </script>
+
+</body>
+</html>
